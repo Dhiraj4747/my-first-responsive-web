@@ -1,0 +1,243 @@
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    border-bottom: 1px solid #000;
+    z-index: 10px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+nav #logo{
+    /* width: 220px; */
+    cursor: pointer;
+}
+
+nav h2{
+    cursor: pointer;
+}
+
+nav .nav-btn{
+    background: black;
+    color: white;
+    border: 0;
+    outline: 0;
+    border-radius: 40px;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+#inbtn{
+    width: 16px;
+    margin-left: 8px;
+}
+
+/* we apply style for nav bar succesfully from line 8 to 47 */
+
+/* now we apply style for div .header */
+
+.header{
+    width: 100%;     /* to occupy 100% width of document */
+    min-height: 100vh;/* The element will be as tall as the viewport */
+    background: linear-gradient(#eefff9 0%, #ffccc1 49%, #dcdbff 100%); /* is used to create a gradient effect that smoothly transitions between two or more colors along a straight line. You can customize the direction, color stops, and angles to achieve various visual effects. */
+    padding: 0 10% ; /* 0px top and bottom, 10% right and left */
+
+    /* we add some properties because the content of header div are overlapped with the nav bar content */
+    display: flex;
+    justify-content: center; /* to align the content in center of the document */ 
+    flex-direction: column; /* to add the content column wise vertically center */
+
+}
+
+.header h1{
+    margin-top: 100px; /* 100 pixels of space above the element */
+    font-size: 13vw; /* 13 viewport width*/
+    line-height: 11vw; /*  It's commonly used to set the distance between lines of text */
+}
+
+.btn-container{
+    margin: 20px 0; /* 20px top and bottom, 0px right and left */
+
+}
+
+/* to style the button*/
+.header button{
+    border: 0;
+    outline: 0;
+    display: inline-flex; /* this are use for we want to insert icon also in the button*/
+    align-items: center; /*his also for icon insert task*/
+    font-size: 18px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn-dark{
+    background-color: #000;
+    color: #dcdbff;
+    padding: 10px 10px 10px 30px;/*top right bottom left*/
+    border-radius: 40px;
+}
+
+.btn-container #btn-icon{
+    padding: 10px;
+}
+
+
+.btn-light{
+    background-color: transparent;
+    text-decoration: underline;
+    padding: 10px 10px 10px 30px;/*top right bottom left*/
+    border-radius: 40px;
+}
+
+.header p{
+    max-width: 360px; /*we give the width for paragraph so experince word print in next line*/
+    font-weight: 500;
+
+}
+
+.user-img{
+    width: 650px; /*The element's width will be 80% of its parent container's width.*/
+    position: absolute;/**/
+    right: 6%;/*The element is placed 13% from the right edge of its containing block.*/
+    height: 600px;
+}
+
+/* -----------------animation part begin from here ---------------- */
+
+.header h1 span{
+    background: linear-gradient(#000,#000);
+    background-repeat: no-repeat;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 0%;
+}
+
+.header h1 span:first-child{
+    animation: textcolor1 2s linear infinite alternate;
+}
+
+
+@keyframes textcolor1{
+    0%{
+        background-size: 0%;
+        
+    }
+    40%{
+        background-size: 100%;
+    }
+    100%{
+        background-size: 100%;
+    }
+}
+
+.header h1 span:last-child{
+    animation: textcolor2 2s linear infinite alternate;
+}
+
+@keyframes textcolor2{
+    0%{
+        background-size: 0%;
+        
+    }
+    40%{
+        background-size: 100%;
+    }
+    100%{
+        background-size: 100%;
+    }
+}
+
+#menu-icon{
+    display: none;/* for intially hidden the menu icon*/
+}
+
+/*-------------- now we start to work on website view on different screen size ----------- */
+/* --------------Media Queries for navbar--------------------- */
+
+@media only screen and (max-width:600px){ /*work on scrren whose size is less than 600px*/
+
+    nav ul{
+    position: absolute;
+    width: 100%;
+    background: black;
+    color: white;
+    left: 0;
+    top: 100%;
+    align-items: center;
+
+    /* -----------to add the clickable feature in menu icon------ */
+    max-height: 0;  /*we increase the max height using the javascript */  
+    overflow: hidden;
+    transition: max-height 0.5s;
+
+    }
+
+    .nav-btn{
+        display: none;
+    }
+
+    nav ul li{
+        margin: 10px;
+        font-size: 14px;
+    }
+
+    #menu-icon{
+        display: block;
+        width: 30px;
+    }
+    
+    .show-menu{
+        max-height: 60px;
+
+    }
+}
+
+/* --------------Media Queries for navbar--------------------- */
+
+@media only screen and (max-width:600px){
+    .header{
+        min-height: auto;
+        padding: 0;
+    }
+    .user-img{
+        width: 100%;
+        right: auto;
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .header-content{
+        position: absolute;
+        bottom: 0;
+        padding: 0 10%;
+        z-index: 2;
+        padding-bottom: 40px;
+        background: linear-gradient(transparent,#fff);
+    }
+    .header h1{
+        font-size: 70px;
+        line-height: 60px;
+        margin-bottom: 20px;
+
+    }
+}
+
